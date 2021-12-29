@@ -1,7 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MenuItem from "../MenuItem";
 
 import "./directory.styles.scss";
+
+type Section = {
+  title: string;
+  imageUrl: string;
+  id: number;
+  linkUrl: string;
+  size?: string;
+}
 
 const sections = [
   {
@@ -39,11 +47,15 @@ const sections = [
 ];
 
 function Directory() {
-  const [sectionsList, setSectionList] = useState(sections);
+  const [sectionsList, setSectionList] = useState<Section[]>();
+
+  useEffect(() => {
+    setSectionList(sections);
+  }, [])
   return (
     <div className="directory-menu">
         {
-          sectionsList.map(({ title, imageUrl, id, size }) => (
+          sectionsList?.map(({ title, imageUrl, id, size }) => (
             <MenuItem key={id} title={title} imageBackground={imageUrl} sizeValue={size} />
           ))
         }
