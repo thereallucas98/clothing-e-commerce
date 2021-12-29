@@ -10,10 +10,13 @@ function MenuItem({ title, imageBackground, sizeValue }: MenuItemProps) {
   return (
     <div 
       className={`${sizeValue} menu-item`}
-      style={{ backgroundImage: `url(${imageBackground})` }}
     >
+      <div 
+        className="background-image"  
+        style={{ backgroundImage: `url(${imageBackground})` }}
+      ></div>
       <div className="content">
-        <h1 className="title">{title}</h1>
+        <h1 className="title">{title.toUpperCase()}</h1>
         <span className="subtitle">SHOP</span>
       </div>
     </div>
