@@ -1,17 +1,19 @@
+import CollectionItem from "../CollectionItem";
+
 import "./preview-collection.styles.scss";
 
-type CollectionItem = {
+type CollectionItemProps = {
   id: number;
   name: string;
-  // imageUrl: string;
-  // price: number;
+  imageUrl: string;
+  price: number;
 }
 
 type Collection = {
   // id: number;
   title: string;
   // routeName: string;
-  items: CollectionItem[];
+  items: CollectionItemProps[];
 }
 
 function PreviewCollection({ title, items }: Collection) {
@@ -21,7 +23,13 @@ function PreviewCollection({ title, items }: Collection) {
       <div className="preview">
         {
           items.filter((item, index) => index < 4).map((item) => (
-            <div key={item.id}>{item.name}</div>
+            <CollectionItem 
+              key={item.id} 
+              id={item.id} 
+              name={item.name} 
+              imageUrl={item.imageUrl} 
+              price={item.price} 
+            />
           ))
         }
       </div>
