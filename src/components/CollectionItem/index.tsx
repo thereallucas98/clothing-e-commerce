@@ -1,13 +1,13 @@
 import "./collection-item.styles.scss";
 
-type CollectionItem = {
+type CollectionItemProps = {
   id: number;
   name: string;
   imageUrl: string;
   price: number;
 }
 
-function CollectionItem({ id, name, imageUrl, price }: CollectionItem) {
+function CollectionItem({ id, name, imageUrl, price }: CollectionItemProps) {
   return (
     <div className="collection-item">
       <div className="image" style={{ backgroundImage: `url(${imageUrl})` }} />
